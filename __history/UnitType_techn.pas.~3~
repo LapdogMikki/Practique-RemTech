@@ -1,0 +1,26 @@
+unit UnitType_techn;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs;
+
+type
+  TFormType_techn = class(TForm)
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  FormType_techn: TFormType_techn;
+
+implementation
+
+uses UnitDB;
+
+{$R *.dfm}
+
+end.

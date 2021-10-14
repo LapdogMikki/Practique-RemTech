@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2021.02.09 10:50:01.161.pas,C:\Users\user220\Documents\Borland Studio Projects\Unit1.pas=D:\Ivanov_RemTech\UnitMain.pas</Transaction>
+    <Transaction>2021.02.09 10:50:01.161.dfm,C:\Users\user220\Documents\Borland Studio Projects\Unit1.dfm=D:\Ivanov_RemTech\UnitMain.dfm</Transaction>
+    <Transaction>2021.02.09 10:50:07.193.bdsproj,C:\Users\user220\Documents\Borland Studio Projects\Project1.bdsproj=D:\Ivanov_RemTech\RemTech.bdsproj</Transaction>
+    <Transaction>2021.02.09 11:40:35.479.pas,D:\Ivanov_RemTech\Unit1.pas=D:\Ivanov_RemTech\UnitDB.pas</Transaction>
+    <Transaction>2021.02.09 11:40:35.479.dfm,D:\Ivanov_RemTech\Unit1.dfm=D:\Ivanov_RemTech\UnitDB.dfm</Transaction>
+    <Transaction>2021.02.09 12:57:20.070.pas,D:\Ivanov_RemTech\Unit3.pas=D:\Ivanov_RemTech\UnitStatus.pas</Transaction>
+    <Transaction>2021.02.09 12:57:20.070.dfm,D:\Ivanov_RemTech\Unit3.dfm=D:\Ivanov_RemTech\UnitStatus.dfm</Transaction>
+    <Transaction>2021.02.09 12:57:26.895.pas,D:\Ivanov_RemTech\Unit2.pas=D:\Ivanov_RemTech\UnitType_techn.pas</Transaction>
+    <Transaction>2021.02.09 12:57:26.895.dfm,D:\Ivanov_RemTech\Unit2.dfm=D:\Ivanov_RemTech\UnitType_techn.dfm</Transaction>
+    <Transaction>2021.02.09 12:57:32.094.pas,D:\Ivanov_RemTech\Unit1.pas=D:\Ivanov_RemTech\UnitSotrud.pas</Transaction>
+    <Transaction>2021.02.09 12:57:32.094.dfm,D:\Ivanov_RemTech\Unit1.dfm=D:\Ivanov_RemTech\UnitSotrud.dfm</Transaction>
+  </Transactions>
+</BorlandProject>

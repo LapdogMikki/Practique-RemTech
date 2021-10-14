@@ -1,0 +1,142 @@
+object DBModule: TDBModule
+  OldCreateOrder = False
+  Height = 367
+  Width = 667
+  object ADORem_tech: TADOConnection
+    Connected = True
+    ConnectionString = 
+      'Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security In' +
+      'fo=False;Initial Catalog=Rem_tech;Data Source=WIN-HD2IB24K456\SQ' +
+      'LEXPRESS'
+    LoginPrompt = False
+    Provider = 'SQLOLEDB.1'
+    Left = 24
+    Top = 16
+  end
+  object ADOTechn: TADOTable
+    Active = True
+    Connection = ADORem_tech
+    CursorType = ctStatic
+    TableName = 'Technika'
+    Left = 80
+    Top = 80
+  end
+  object ADOType_techn: TADOTable
+    Active = True
+    Connection = ADORem_tech
+    CursorType = ctStatic
+    TableName = 'Type_Techn'
+    Left = 80
+    Top = 136
+  end
+  object ADOSotrud: TADOTable
+    Active = True
+    Connection = ADORem_tech
+    CursorType = ctStatic
+    TableName = 'Sotrud'
+    Left = 80
+    Top = 184
+  end
+  object ADOStatus: TADOTable
+    Active = True
+    Connection = ADORem_tech
+    CursorType = ctStatic
+    TableName = 'Status'
+    Left = 80
+    Top = 232
+  end
+  object DataTechn: TDataSource
+    DataSet = ADOTechn
+    Left = 160
+    Top = 88
+  end
+  object DataType_techn: TDataSource
+    DataSet = ADOType_techn
+    Left = 160
+    Top = 136
+  end
+  object DataSotrud: TDataSource
+    DataSet = ADOSotrud
+    Left = 160
+    Top = 184
+  end
+  object DataStatus: TDataSource
+    DataSet = ADOStatus
+    Left = 152
+    Top = 240
+  end
+  object DataRemont: TDataSource
+    DataSet = ADORemont
+    Left = 440
+    Top = 48
+  end
+  object ADOStatus2: TADOTable
+    Active = True
+    Connection = ADORem_tech
+    CursorType = ctStatic
+    TableName = 'Status'
+    Left = 368
+    Top = 168
+  end
+  object DataStatus2: TDataSource
+    DataSet = ADOStatus2
+    Left = 440
+    Top = 176
+  end
+  object ADOTechn2: TADOTable
+    Active = True
+    Connection = ADORem_tech
+    CursorType = ctStatic
+    TableName = 'Technika'
+    Left = 376
+    Top = 104
+  end
+  object DataTechn2: TDataSource
+    DataSet = ADOTechn2
+    Left = 456
+    Top = 112
+  end
+  object ADOType_techn2: TADOTable
+    Active = True
+    Connection = ADORem_tech
+    CursorType = ctStatic
+    TableName = 'Type_Techn'
+    Left = 72
+    Top = 288
+  end
+  object DataType_techn2: TDataSource
+    DataSet = ADOType_techn2
+    Left = 160
+    Top = 288
+  end
+  object ADORemont: TADOTable
+    Active = True
+    Connection = ADORem_tech
+    CursorType = ctStatic
+    TableName = 'Remont'
+    Left = 368
+    Top = 56
+  end
+  object DataSRemont: TDataSource
+    DataSet = SQLRemont
+    Left = 432
+    Top = 232
+  end
+  object SQLRemont: TADOQuery
+    Active = True
+    Connection = ADORem_tech
+    CursorType = ctStatic
+    Parameters = <>
+    SQL.Strings = (
+      
+        'select Technika.name as ['#1058#1077#1093#1085#1080#1082#1072'], Status.status_rem as ['#1057#1090#1072#1090#1091#1089' ' +
+        #1088#1077#1084#1086#1085#1090#1072'], Sotrud.FIO as ['#1057#1086#1090#1088#1091#1076#1085#1080#1082'], Remont.data_priema as ['#1044#1072#1090#1072 +
+        ' '#1087#1088#1080#1105#1084#1072'], Remont.data_konechn as ['#1044#1072#1090#1072' '#1089#1076#1072#1095#1080']'
+      'from Remont, Technika, Status, Sotrud'
+      
+        'where Technika.id_techn=Remont.id_tech and Sotrud.id_sotr=Remont' +
+        '.id_sotrud and Status.id_status=Remont.id_status ')
+    Left = 360
+    Top = 232
+  end
+end

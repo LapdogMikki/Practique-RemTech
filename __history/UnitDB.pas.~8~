@@ -1,0 +1,42 @@
+unit UnitDB;
+
+interface
+
+uses
+  SysUtils, Classes, DB, ADODB, FMTBcd, SqlExpr;
+
+type
+  TDBModule = class(TDataModule)
+    ADORem_tech: TADOConnection;
+    ADOTechn: TADOTable;
+    ADOType_techn: TADOTable;
+    ADOSotrud: TADOTable;
+    ADOStatus: TADOTable;
+    DataTechn: TDataSource;
+    DataType_techn: TDataSource;
+    DataSotrud: TDataSource;
+    DataStatus: TDataSource;
+    SQLQueryRemont: TSQLQuery;
+    DataRemont: TDataSource;
+    ADOStatus2: TADOTable;
+    DataStatus2: TDataSource;
+    ADOTechn2: TADOTable;
+    DataTechn2: TDataSource;
+    ADOType_techn2: TADOTable;
+    DataType_techn2: TDataSource;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  DBModule: TDBModule;
+
+implementation
+
+{$R *.dfm}
+
+
+
+end.

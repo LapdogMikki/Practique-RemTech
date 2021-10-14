@@ -1,0 +1,29 @@
+unit UnitType_techn;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, Grids, DBGrids, StdCtrls, Mask, DBCtrls;
+
+type
+  TFormType_techn = class(TForm)
+    DBGrid1: TDBGrid;
+    DBEdit1: TDBEdit;
+    Label1: TLabel;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  FormType_techn: TFormType_techn;
+
+implementation
+
+uses UnitDB;
+
+{$R *.dfm}
+
+end.

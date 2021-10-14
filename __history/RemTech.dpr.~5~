@@ -1,0 +1,21 @@
+program RemTech;
+
+uses
+  Forms,
+  UnitMain in 'UnitMain.pas' {FormMain},
+  UnitDB in 'UnitDB.pas' {DataModule1: TDataModule},
+  UnitSotrud in 'UnitSotrud.pas' {FormSotrud},
+  UnitType_techn in 'UnitType_techn.pas' {FormType_techn},
+  UnitStatus in 'UnitStatus.pas' {FormStatus};
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.CreateForm(TFormMain, FormMain);
+  Application.CreateForm(TDataModule1, DataModule1);
+  Application.CreateForm(TFormSotrud, FormSotrud);
+  Application.CreateForm(TFormType_techn, FormType_techn);
+  Application.CreateForm(TFormStatus, FormStatus);
+  Application.Run;
+end.
