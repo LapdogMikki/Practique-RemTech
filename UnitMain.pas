@@ -64,6 +64,7 @@ type
     Button10: TButton;
     Button11: TButton;
     Button12: TButton;
+    N7: TMenuItem;
     procedure N3Click(Sender: TObject);
     procedure N4Click(Sender: TObject);
     procedure N5Click(Sender: TObject);
@@ -80,6 +81,8 @@ type
     procedure Button11Click(Sender: TObject);
     procedure Button10Click(Sender: TObject);
     procedure Button12Click(Sender: TObject);
+    procedure GroupBox1Click(Sender: TObject);
+    procedure N7Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -90,7 +93,7 @@ var
   FormMain: TFormMain;
 
 implementation
-uses UnitDB, UnitSotrud, UnitStatus, UnitType_techn;
+uses UnitDB, UnitSotrud, UnitStatus, UnitType_techn, UnitZakaz;
 
 {$R *.dfm}
 
@@ -185,6 +188,8 @@ end;
 
 
 
+
+
 procedure TFormMain.N3Click(Sender: TObject);
 begin
 FormMain.Close;
@@ -195,7 +200,7 @@ begin
 if assigned(FormType_techn) then
     begin
       Application.Title:='Внимание';
-      ShowMessage('Форма данного журнала открыта');
+      ShowMessage('Форма данного справочника открыта');
     end
   else
   Application.CreateForm(TFormType_techn, FormType_techn);
@@ -206,7 +211,7 @@ begin
 if assigned(FormSotrud) then
     begin
       Application.Title:='Внимание';
-      ShowMessage('Форма данного журнала открыта');
+      ShowMessage('Форма данного справочника открыта');
     end
   else
   Application.CreateForm(TFormSotrud, FormSotrud);
@@ -217,11 +222,22 @@ begin
 if assigned(FormStatus) then
     begin
       Application.Title:='Внимание';
-      ShowMessage('Форма данного журнала открыта');
+      ShowMessage('Форма данного справочника открыта');
     end
   else
   Application.CreateForm(TFormStatus, FormStatus);
 end;
 
+
+procedure TFormMain.N7Click(Sender: TObject);
+begin
+if assigned(FormZakaz) then
+    begin
+      Application.Title:='Внимание';
+      ShowMessage('Форма данного журнала открыта');
+    end
+  else
+  Application.CreateForm(TFormStatus, FormZakaz);
+end;
 
 end.

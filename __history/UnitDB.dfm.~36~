@@ -1253,33 +1253,25 @@ object DBModule: TDBModule
     end
   end
   object ADOFormZkz: TADOTable
-    Active = True
     Connection = ADORem_tech
-    CursorType = ctStatic
     TableName = 'FormirZakaz'
     Left = 104
     Top = 424
   end
   object ADOZkz: TADOTable
-    Active = True
     Connection = ADORem_tech
-    CursorType = ctStatic
     TableName = 'Zakaz'
     Left = 104
     Top = 472
   end
   object ADOTechn_3: TADOTable
-    Active = True
     Connection = ADORem_tech
-    CursorType = ctStatic
     TableName = 'Technika'
     Left = 104
     Top = 520
   end
   object ADOSotrud_3: TADOTable
-    Active = True
     Connection = ADORem_tech
-    CursorType = ctStatic
     TableName = 'Sotrud'
     Left = 104
     Top = 568

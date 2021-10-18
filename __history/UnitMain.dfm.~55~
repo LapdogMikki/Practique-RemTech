@@ -2,7 +2,7 @@ object FormMain: TFormMain
   Left = 0
   Top = 0
   Caption = #1057#1087#1088#1072#1074#1086#1095#1085#1080#1082' '#1080' '#1078#1091#1088#1085#1072#1083' '#1090#1077#1093#1085#1080#1082#1080
-  ClientHeight = 452
+  ClientHeight = 472
   ClientWidth = 627
   Color = clBtnFace
   DefaultMonitor = dmMainForm
@@ -22,11 +22,10 @@ object FormMain: TFormMain
     Top = 0
     Width = 625
     Height = 449
-    ActivePage = TabSheet3
+    ActivePage = TabSheet2
     TabOrder = 0
     object TabSheet1: TTabSheet
       Caption = #1057#1087#1080#1089#1086#1082' '#1080#1084#1077#1102#1097#1077#1081#1089#1103' '#1090#1077#1093#1085#1080#1082#1080
-      ExplicitHeight = 405
       object Label1: TLabel
         Left = 16
         Top = 258
@@ -131,8 +130,6 @@ object FormMain: TFormMain
     object TabSheet2: TTabSheet
       Caption = #1058#1077#1093#1085#1080#1082#1072', '#1085#1072#1093#1086#1076#1103#1097#1072#1103#1089#1103' '#1085#1072' '#1088#1077#1084#1086#1085#1090#1077
       ImageIndex = 1
-      ExplicitLeft = 8
-      ExplicitTop = 28
       object Label4: TLabel
         Left = 8
         Top = 250
@@ -198,10 +195,10 @@ object FormMain: TFormMain
         Top = 274
         Width = 478
         Height = 21
-        DataField = 'id_sotrud'
+        DataField = 'id_status'
         DataSource = DBModule.DataRemont
-        KeyField = 'status_rem'
-        ListField = 'id_status'
+        KeyField = 'id_status'
+        ListField = 'status_rem'
         ListSource = DBModule.DataStatus2
         TabOrder = 2
       end
@@ -284,9 +281,6 @@ object FormMain: TFormMain
     object TabSheet3: TTabSheet
       Caption = #1055#1086#1080#1089#1082' '#1080' '#1086#1090#1095#1105#1090#1099' '#1087#1086' '#1088#1077#1084#1086#1085#1090#1091
       ImageIndex = 2
-      OnContextPopup = TabSheet3ContextPopup
-      ExplicitLeft = 8
-      ExplicitTop = 28
       object DBGrid3: TDBGrid
         Left = 3
         Top = 0
@@ -370,10 +364,10 @@ object FormMain: TFormMain
           Top = 49
           Width = 495
           Height = 21
-          DataField = 'id_sotrud'
+          DataField = 'id_status'
           DataSource = DBModule.DataRemont
-          KeyField = 'status_rem'
-          ListField = 'id_status'
+          KeyField = 'id_status'
+          ListField = 'status_rem'
           ListSource = DBModule.DataStatus2
           TabOrder = 5
         end
@@ -388,7 +382,6 @@ object FormMain: TFormMain
           ListField = 'name'
           ListSource = DBModule.DataTechn2
           TabOrder = 6
-          OnClick = DBLookupComboBox7Click
         end
         object MaskEdit1: TMaskEdit
           Left = 138
@@ -436,6 +429,7 @@ object FormMain: TFormMain
         Height = 25
         Caption = #1054#1090#1095#1105#1090' '#1087#1086' '#1076#1072#1085#1085#1086#1084#1091
         TabOrder = 4
+        OnClick = Button12Click
       end
     end
   end
@@ -459,6 +453,9 @@ object FormMain: TFormMain
         Caption = #1057#1087#1088#1072#1074#1086#1095#1085#1080#1082' '#1089#1090#1072#1090#1091#1089#1086#1074
         OnClick = N6Click
       end
+    end
+    object N7: TMenuItem
+      Caption = #1046#1091#1088#1085#1072#1083' '#1079#1072#1082#1072#1079#1086#1074
     end
     object N2: TMenuItem
       Caption = #1055#1086#1084#1086#1097#1100

@@ -60,14 +60,6 @@ type
     ADOType_techn2id_type_techn: TAutoIncField;
     ADOType_techn2name_type: TStringField;
     ADOTechntypetec: TStringField;
-    ADOFormZkz: TADOTable;
-    ADOZkz: TADOTable;
-    ADOTechn_3: TADOTable;
-    ADOSotrud_3: TADOTable;
-    DataFormZkz: TDataSource;
-    DataZkz: TDataSource;
-    DataTechn_3: TDataSource;
-    DataSotrud_3: TDataSource;
   private
     { Private declarations }
   public

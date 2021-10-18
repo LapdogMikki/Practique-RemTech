@@ -72,16 +72,14 @@ type
     procedure Button2Click(Sender: TObject);
     procedure Button4Click(Sender: TObject);
     procedure Button3Click(Sender: TObject);
-    procedure TabSheet3ContextPopup(Sender: TObject; MousePos: TPoint;
-      var Handled: Boolean);
     procedure Button5Click(Sender: TObject);
     procedure Button6Click(Sender: TObject);
     procedure Button9Click(Sender: TObject);
     procedure Button7Click(Sender: TObject);
     procedure Button8Click(Sender: TObject);
-    procedure DBLookupComboBox7Click(Sender: TObject);
     procedure Button11Click(Sender: TObject);
     procedure Button10Click(Sender: TObject);
+    procedure Button12Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -115,6 +113,7 @@ if CheckBox1.Checked=true then
     begin
       DBModule.SQLRemont.SQL.Add('and Remont.id_sotrud='+DBLookUpCombobox5.ListSource.DataSet.FieldByName('id_sotr').AsString);
     end;
+  DBModule.SQLRemont.Active:=True;
 end;
 
 procedure TFormMain.Button11Click(Sender: TObject);
@@ -125,6 +124,11 @@ begin
   DBModule.SQLRemont.SQL.Add('from Remont, Technika, Status, Sotrud');
   DBModule.SQLRemont.SQL.Add('where Technika.id_techn=Remont.id_tech and Sotrud.id_sotr=Remont.id_sotrud and Status.id_status=Remont.id_status');
   DBModule.SQLRemont.Active:=True;
+end;
+
+procedure TFormMain.Button12Click(Sender: TObject);
+begin
+DBModule.frxReporRem.ShowReport;
 end;
 
 procedure TFormMain.Button1Click(Sender: TObject);

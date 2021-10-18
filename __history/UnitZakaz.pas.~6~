@@ -1,0 +1,49 @@
+unit UnitZakaz;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls, Grids, DBGrids, ComCtrls;
+
+type
+  TForm1 = class(TForm)
+    PageControl1: TPageControl;
+    TabSheet1: TTabSheet;
+    TabSheet2: TTabSheet;
+    GroupBox2: TGroupBox;
+    DBGrid1: TDBGrid;
+    Button9: TButton;
+    Button10: TButton;
+    Button11: TButton;
+    GroupBox1: TGroupBox;
+    DBGrid2: TDBGrid;
+    Button1: TButton;
+    Button2: TButton;
+    Button3: TButton;
+    Button4: TButton;
+    Button5: TButton;
+    Button6: TButton;
+    Button7: TButton;
+    Button8: TButton;
+    ComboBox1: TComboBox;
+    ComboBox2: TComboBox;
+    procedure GroupBox1Click(Sender: TObject);
+    procedure GroupBox2Click(Sender: TObject);
+    procedure PageControl1Change(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Form1: TForm1;
+
+implementation
+
+uses UnitDB;
+
+{$R *.dfm}
+
+end.

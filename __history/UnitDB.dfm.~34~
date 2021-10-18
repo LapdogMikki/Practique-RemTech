@@ -1,15 +1,9 @@
 object DBModule: TDBModule
   OldCreateOrder = False
-  Height = 619
+  Height = 442
   Width = 667
   object ADORem_tech: TADOConnection
-    Connected = True
-    ConnectionString = 
-      'Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security In' +
-      'fo=False;Initial Catalog=Rem_tech;Data Source=.\SQLEXPRESS;Use P' +
-      'rocedure for Prepare=1;Auto Translate=True;Packet Size=4096;Work' +
-      'station ID=.;Use Encryption for Data=False;Tag with column colla' +
-      'tion when possible=False;'
+    Connected = False
     LoginPrompt = False
     Provider = 'SQLOLEDB.1'
     Left = 24
@@ -278,7 +272,6 @@ object DBModule: TDBModule
     Top = 264
   end
   object ADOSotrud2: TADOTable
-    Active = True
     Connection = ADORem_tech
     CursorType = ctStatic
     TableName = 'Sotrud'
@@ -1251,57 +1244,5 @@ object DBModule: TDBModule
         end
       end
     end
-  end
-  object ADOFormZkz: TADOTable
-    Active = True
-    Connection = ADORem_tech
-    CursorType = ctStatic
-    TableName = 'FormirZakaz'
-    Left = 104
-    Top = 424
-  end
-  object ADOZkz: TADOTable
-    Active = True
-    Connection = ADORem_tech
-    CursorType = ctStatic
-    TableName = 'Zakaz'
-    Left = 104
-    Top = 472
-  end
-  object ADOTechn_3: TADOTable
-    Active = True
-    Connection = ADORem_tech
-    CursorType = ctStatic
-    TableName = 'Technika'
-    Left = 104
-    Top = 520
-  end
-  object ADOSotrud_3: TADOTable
-    Active = True
-    Connection = ADORem_tech
-    CursorType = ctStatic
-    TableName = 'Sotrud'
-    Left = 104
-    Top = 568
-  end
-  object DataFormZkz: TDataSource
-    DataSet = ADOFormZkz
-    Left = 184
-    Top = 424
-  end
-  object DataZkz: TDataSource
-    DataSet = ADOZkz
-    Left = 184
-    Top = 472
-  end
-  object DataTechn_3: TDataSource
-    DataSet = ADOTechn_3
-    Left = 184
-    Top = 520
-  end
-  object DataSotrud_3: TDataSource
-    DataSet = ADOSotrud_3
-    Left = 184
-    Top = 568
   end
 end

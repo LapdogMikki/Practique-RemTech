@@ -2,7 +2,7 @@ object FormMain: TFormMain
   Left = 0
   Top = 0
   Caption = #1057#1087#1088#1072#1074#1086#1095#1085#1080#1082' '#1080' '#1078#1091#1088#1085#1072#1083' '#1090#1077#1093#1085#1080#1082#1080
-  ClientHeight = 452
+  ClientHeight = 472
   ClientWidth = 627
   Color = clBtnFace
   DefaultMonitor = dmMainForm
@@ -301,6 +301,7 @@ object FormMain: TFormMain
         Height = 145
         Caption = #1055#1086#1080#1089#1082
         TabOrder = 1
+        OnClick = GroupBox1Click
         object Label9: TLabel
           Left = 106
           Top = 120
@@ -453,6 +454,10 @@ object FormMain: TFormMain
         Caption = #1057#1087#1088#1072#1074#1086#1095#1085#1080#1082' '#1089#1090#1072#1090#1091#1089#1086#1074
         OnClick = N6Click
       end
+    end
+    object N7: TMenuItem
+      Caption = #1046#1091#1088#1085#1072#1083' '#1079#1072#1082#1072#1079#1086#1074
+      OnClick = N7Click
     end
     object N2: TMenuItem
       Caption = #1055#1086#1084#1086#1097#1100

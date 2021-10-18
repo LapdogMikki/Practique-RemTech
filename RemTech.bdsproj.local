@@ -12,5 +12,7 @@
     <Transaction>2021.02.09 12:57:26.895.dfm,D:\Ivanov_RemTech\Unit2.dfm=D:\Ivanov_RemTech\UnitType_techn.dfm</Transaction>
     <Transaction>2021.02.09 12:57:32.094.pas,D:\Ivanov_RemTech\Unit1.pas=D:\Ivanov_RemTech\UnitSotrud.pas</Transaction>
     <Transaction>2021.02.09 12:57:32.094.dfm,D:\Ivanov_RemTech\Unit1.dfm=D:\Ivanov_RemTech\UnitSotrud.dfm</Transaction>
+    <Transaction>2021.10.18 18:24:07.777.pas,Q:\Projects\RemTech\Unit1.pas=Q:\Projects\RemTech\UnitZakaz.pas</Transaction>
+    <Transaction>2021.10.18 18:24:07.777.dfm,Q:\Projects\RemTech\Unit1.dfm=Q:\Projects\RemTech\UnitZakaz.dfm</Transaction>
   </Transactions>
 </BorlandProject>
