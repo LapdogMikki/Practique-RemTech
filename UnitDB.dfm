@@ -1259,6 +1259,47 @@ object DBModule: TDBModule
     TableName = 'FormirZakaz'
     Left = 104
     Top = 424
+    object ADOFormZkzid_tech: TIntegerField
+      FieldName = 'id_tech'
+      Visible = False
+    end
+    object ADOFormZkzid_sotrud: TIntegerField
+      FieldName = 'id_sotrud'
+      Visible = False
+    end
+    object ADOFormZkztechn: TStringField
+      DisplayLabel = #1058#1077#1093#1085#1080#1082#1072
+      FieldKind = fkLookup
+      FieldName = 'techn'
+      LookupDataSet = ADOTechn_3
+      LookupKeyFields = 'id_techn'
+      LookupResultField = 'name'
+      KeyFields = 'id_tech'
+      LookupCache = True
+      Lookup = True
+    end
+    object ADOFormZkzdata_zkz: TWideStringField
+      DisplayLabel = #1044#1072#1090#1072' '#1079#1072#1082#1072#1079#1072
+      FieldName = 'data_zkz'
+      EditMask = '!9999-99-99;1;_'
+      Size = 10
+    end
+    object ADOFormZkzprice: TBCDField
+      DisplayLabel = #1062#1077#1085#1072
+      FieldName = 'price'
+      Precision = 19
+    end
+    object ADOFormZkzsotrud: TStringField
+      DisplayLabel = #1057#1086#1090#1088#1091#1076#1085#1080#1082
+      FieldKind = fkLookup
+      FieldName = 'sotrud'
+      LookupDataSet = ADOSotrud_3
+      LookupKeyFields = 'id_sotr'
+      LookupResultField = 'FIO'
+      KeyFields = 'id_sotrud'
+      LookupCache = True
+      Lookup = True
+    end
   end
   object ADOZkz: TADOTable
     Active = True
@@ -1267,6 +1308,49 @@ object DBModule: TDBModule
     TableName = 'Zakaz'
     Left = 104
     Top = 472
+    object ADOZkzid_zkz: TIntegerField
+      FieldName = 'id_zkz'
+      Visible = False
+    end
+    object ADOZkzid_techn: TIntegerField
+      FieldName = 'id_techn'
+      Visible = False
+    end
+    object ADOZkzid_sotrud: TIntegerField
+      FieldName = 'id_sotrud'
+      Visible = False
+    end
+    object ADOZkztechn: TStringField
+      DisplayLabel = #1058#1077#1093#1085#1080#1082#1072
+      FieldKind = fkLookup
+      FieldName = 'techn'
+      LookupDataSet = ADOTechn_3
+      LookupKeyFields = 'id_techn'
+      LookupResultField = 'name'
+      KeyFields = 'id_techn'
+      Lookup = True
+    end
+    object ADOZkzdata_zkz: TWideStringField
+      DisplayLabel = #1044#1072#1090#1072' '#1079#1072#1082#1072#1079#1072
+      FieldName = 'data_zkz'
+      EditMask = '!9999-99-99;1;_'
+      Size = 10
+    end
+    object ADOZkzprice: TBCDField
+      DisplayLabel = #1062#1077#1085#1072
+      FieldName = 'price'
+      Precision = 19
+    end
+    object ADOZkzsotrud: TStringField
+      DisplayLabel = #1054#1090#1074'.'#1089#1086#1090#1088#1091#1076#1085#1080#1082
+      FieldKind = fkLookup
+      FieldName = 'sotrud'
+      LookupDataSet = ADOSotrud_3
+      LookupKeyFields = 'id_sotr'
+      LookupResultField = 'FIO'
+      KeyFields = 'id_sotrud'
+      Lookup = True
+    end
   end
   object ADOTechn_3: TADOTable
     Active = True
@@ -1303,5 +1387,26 @@ object DBModule: TDBModule
     DataSet = ADOSotrud_3
     Left = 184
     Top = 568
+  end
+  object DataQueryZakaz: TDataSource
+    DataSet = ADOQZakaz
+    Left = 368
+    Top = 472
+  end
+  object ADOQZakaz: TADOQuery
+    Active = True
+    Connection = ADORem_tech
+    CursorType = ctStatic
+    Parameters = <>
+    SQL.Strings = (
+      
+        'select Technika.name as ['#1058#1077#1093#1085#1080#1082#1072'], Zakaz.data_zkz as ['#1047#1072#1082#1072#1079'], Za' +
+        'kaz.price as ['#1062#1077#1085#1072'], Sotrud.FIO as ['#1057#1086#1090#1088#1091#1076#1085#1080#1082']'
+      'from Zakaz, Sotrud, Technika'
+      
+        'where Technika.id_techn=Zakaz.id_techn and Sotrud.id_sotr=Zakaz.' +
+        'id_sotrud')
+    Left = 304
+    Top = 472
   end
 end

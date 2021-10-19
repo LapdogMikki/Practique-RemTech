@@ -15,6 +15,5 @@ begin
   Application.Initialize;
   Application.CreateForm(TFormMain, FormMain);
   Application.CreateForm(TDBModule, DBModule);
-  Application.CreateForm(TFormZakaz, FormZakaz);
   Application.Run;
 end.

@@ -68,6 +68,21 @@ type
     DataZkz: TDataSource;
     DataTechn_3: TDataSource;
     DataSotrud_3: TDataSource;
+    ADOFormZkzid_tech: TIntegerField;
+    ADOFormZkzid_sotrud: TIntegerField;
+    ADOFormZkzdata_zkz: TWideStringField;
+    ADOFormZkzprice: TBCDField;
+    ADOFormZkztechn: TStringField;
+    ADOFormZkzsotrud: TStringField;
+    ADOZkzid_zkz: TIntegerField;
+    ADOZkzid_techn: TIntegerField;
+    ADOZkzid_sotrud: TIntegerField;
+    ADOZkzdata_zkz: TWideStringField;
+    ADOZkzprice: TBCDField;
+    ADOZkztechn: TStringField;
+    ADOZkzsotrud: TStringField;
+    DataQueryZakaz: TDataSource;
+    ADOQZakaz: TADOQuery;
   private
     { Private declarations }
   public

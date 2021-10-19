@@ -81,8 +81,8 @@ type
     procedure Button11Click(Sender: TObject);
     procedure Button10Click(Sender: TObject);
     procedure Button12Click(Sender: TObject);
-    procedure GroupBox1Click(Sender: TObject);
     procedure N7Click(Sender: TObject);
+
   private
     { Private declarations }
   public
@@ -100,6 +100,10 @@ uses UnitDB, UnitSotrud, UnitStatus, UnitType_techn, UnitZakaz;
 procedure TFormMain.Button10Click(Sender: TObject);
 begin
 DBModule.SQLRemont.Active:=False;
+DBModule.SQLRemont.SQL.Clear;
+  DBModule.SQLRemont.SQL.Add('select Technika.name as [Техника], Status.status_rem as [Статус ремонта], Sotrud.FIO as [Сотрудник], Remont.data_priema as [Дата приёма], Remont.data_konechn as [Дата сдачи]');
+  DBModule.SQLRemont.SQL.Add('from Remont, Technika, Status, Sotrud');
+  DBModule.SQLRemont.SQL.Add('where Technika.id_techn=Remont.id_tech and Sotrud.id_sotr=Remont.id_sotrud and Status.id_status=Remont.id_status');
 if CheckBox1.Checked=true then
     begin
     DBModule.SQLRemont.SQL.Add('and Remont.id_tech='+DBLookUpCombobox7.ListSource.DataSet.FieldByName('id_techn').AsString);
@@ -237,7 +241,8 @@ if assigned(FormZakaz) then
       ShowMessage('Форма данного журнала открыта');
     end
   else
-  Application.CreateForm(TFormStatus, FormZakaz);
+  Application.CreateForm(TFormZakaz, FormZakaz);
 end;
+
 
 end.
