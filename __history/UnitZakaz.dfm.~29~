@@ -19,9 +19,9 @@ object FormZakaz: TFormZakaz
   object PageControl1: TPageControl
     Left = 8
     Top = 8
-    Width = 473
+    Width = 470
     Height = 457
-    ActivePage = TabSheet1
+    ActivePage = TabSheet2
     TabOrder = 0
     object TabSheet1: TTabSheet
       Caption = #1060#1086#1088#1084#1080#1088#1086#1074#1072#1085#1080#1077' '#1079#1072#1082#1072#1079#1086#1074
@@ -143,8 +143,9 @@ object FormZakaz: TFormZakaz
           Top = 392
           Width = 87
           Height = 25
-          Caption = #1054#1090#1084#1077#1085#1080#1090#1100' '#1079#1072#1082#1072#1079
+          Caption = #1054#1095#1080#1089#1090#1080#1090#1100
           TabOrder = 6
+          OnClick = Button6Click
         end
         object Button7: TButton
           Left = 19
@@ -153,6 +154,7 @@ object FormZakaz: TFormZakaz
           Height = 25
           Caption = #1057#1092#1086#1088#1084#1080#1088#1086#1074#1072#1090#1100' '#1086#1090#1095#1105#1090
           TabOrder = 7
+          OnClick = Button7Click
         end
         object Button8: TButton
           Left = 343
@@ -161,6 +163,7 @@ object FormZakaz: TFormZakaz
           Height = 25
           Caption = #1048#1079#1084#1077#1085#1080#1090#1100
           TabOrder = 8
+          OnClick = Button8Click
         end
         object DBEdit1: TDBEdit
           Left = 100
@@ -169,6 +172,7 @@ object FormZakaz: TFormZakaz
           Height = 21
           DataField = 'data_zkz'
           DataSource = DBModule.DataFormZkz
+          MaxLength = 10
           TabOrder = 9
         end
         object DBEdit2: TDBEdit
@@ -248,7 +252,7 @@ object FormZakaz: TFormZakaz
           Top = 24
           Width = 438
           Height = 209
-          DataSource = DBModule.DataZkz
+          DataSource = DBModule.DataQueryZakaz
           TabOrder = 0
           TitleFont.Charset = DEFAULT_CHARSET
           TitleFont.Color = clWindowText
@@ -263,6 +267,7 @@ object FormZakaz: TFormZakaz
           Height = 24
           Caption = #1057#1092#1086#1088#1084#1080#1088#1086#1074#1072#1090#1100' '#1079#1072#1087#1088#1086#1089
           TabOrder = 1
+          OnClick = Button9Click
         end
         object Button10: TButton
           Left = 189
@@ -271,6 +276,7 @@ object FormZakaz: TFormZakaz
           Height = 24
           Caption = #1054#1090#1084#1077#1085#1080#1090#1100' '
           TabOrder = 2
+          OnClick = Button10Click
         end
         object Button11: TButton
           Left = 304

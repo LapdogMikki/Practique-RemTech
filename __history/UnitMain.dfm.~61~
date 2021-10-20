@@ -2,7 +2,7 @@ object FormMain: TFormMain
   Left = 0
   Top = 0
   Caption = #1057#1087#1088#1072#1074#1086#1095#1085#1080#1082' '#1080' '#1078#1091#1088#1085#1072#1083' '#1090#1077#1093#1085#1080#1082#1080
-  ClientHeight = 452
+  ClientHeight = 472
   ClientWidth = 627
   Color = clBtnFace
   DefaultMonitor = dmMainForm
@@ -22,7 +22,7 @@ object FormMain: TFormMain
     Top = 0
     Width = 625
     Height = 449
-    ActivePage = TabSheet2
+    ActivePage = TabSheet1
     TabOrder = 0
     object TabSheet1: TTabSheet
       Caption = #1057#1087#1080#1089#1086#1082' '#1080#1084#1077#1102#1097#1077#1081#1089#1103' '#1090#1077#1093#1085#1080#1082#1080
@@ -195,7 +195,7 @@ object FormMain: TFormMain
         Top = 274
         Width = 478
         Height = 21
-        DataField = 'id_sotrud'
+        DataField = 'id_status'
         DataSource = DBModule.DataRemont
         KeyField = 'id_status'
         ListField = 'status_rem'
@@ -364,10 +364,10 @@ object FormMain: TFormMain
           Top = 49
           Width = 495
           Height = 21
-          DataField = 'id_sotrud'
+          DataField = 'id_status'
           DataSource = DBModule.DataRemont
-          KeyField = 'status_rem'
-          ListField = 'id_status'
+          KeyField = 'id_status'
+          ListField = 'status_rem'
           ListSource = DBModule.DataStatus2
           TabOrder = 5
         end
@@ -453,6 +453,10 @@ object FormMain: TFormMain
         Caption = #1057#1087#1088#1072#1074#1086#1095#1085#1080#1082' '#1089#1090#1072#1090#1091#1089#1086#1074
         OnClick = N6Click
       end
+    end
+    object N7: TMenuItem
+      Caption = #1046#1091#1088#1085#1072#1083' '#1079#1072#1082#1072#1079#1086#1074
+      OnClick = N7Click
     end
     object N2: TMenuItem
       Caption = #1055#1086#1084#1086#1097#1100

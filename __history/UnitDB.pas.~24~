@@ -101,6 +101,7 @@ type
     BCDField1: TBCDField;
     StringField2: TStringField;
     DataFormZkz2: TDataSource;
+    procedure DataModuleCreate(Sender: TObject);
   private
     { Private declarations }
   public

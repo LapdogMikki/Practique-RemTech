@@ -60,6 +60,8 @@ type
     procedure Button5Click(Sender: TObject);
     procedure Button6Click(Sender: TObject);
     procedure Button8Click(Sender: TObject);
+    procedure Button10Click(Sender: TObject);
+    procedure Button9Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -75,6 +77,16 @@ uses UnitDB;
 
 {$R *.dfm}
 
+procedure TFormZakaz.Button10Click(Sender: TObject);
+begin
+  DBModule.ADOQZakaz.Active:=False;
+  DBModule.ADOQZakaz.SQL.Clear;
+  DBModule.ADOQZakaz.SQL.Add('select Technika.name as [Техника], Zakaz.data_zkz as [Заказ], Zakaz.price as [Цена], Sotrud.FIO as [Сотрудник]');
+  DBModule.ADOQZakaz.SQL.Add('from Zakaz, Technika, Sotrud');
+  DBModule.ADOQZakaz.SQL.Add('where Technika.id_techn=Zakaz.id_techn and Sotrud.id_sotr=Zakaz.id_sotrud');
+  DBModule.ADOQZakaz.Active:=True;
+end;
+
 procedure TFormZakaz.Button1Click(Sender: TObject);
 begin
   DBModule.ADOFormZkz.Insert;
@@ -86,11 +98,15 @@ if application.MessageBox(Pchar('Вы действительно хотите удалить запись в таблиц
     begin
       DBModule.ADOFormZkz.delete;
     end;
+     DBModule.ADOFormZkz2.Active:=False;
+  DBModule.ADOFormZkz2.Active:=True;
 end;
 
 procedure TFormZakaz.Button3Click(Sender: TObject);
 begin
   DBModule.ADOFormZkz.Post;
+  DBModule.ADOFormZkz2.Active:=False;
+  DBModule.ADOFormZkz2.Active:=True;
 end;
 
 procedure TFormZakaz.Button4Click(Sender: TObject);
@@ -112,6 +128,8 @@ begin
         DBModule.ADOZkz.Post;
         DBModule.ADOFormZkz.Next;
     end;
+    DBModule.ADOQZakaz.Active:=False;
+    DBModule.ADOQZakaz.Active:=True;
 end;
 
 procedure TFormZakaz.Button6Click(Sender: TObject);
@@ -122,11 +140,41 @@ if application.MessageBox(Pchar('Вы действительно хотите очистить таблицу?  '),'
       for i := 0 to DBGrid2.DataSource.DataSet.RecordCount-1 do
          DBModule.ADOFormZkz.delete;
     end;
+     DBModule.ADOFormZkz2.Active:=False;
+    DBModule.ADOFormZkz2.Active:=True;
 end;
 
 procedure TFormZakaz.Button8Click(Sender: TObject);
 begin
 DBModule.ADOFormZkz.Edit;
+end;
+
+procedure TFormZakaz.Button9Click(Sender: TObject);
+begin
+  DBModule.ADOQZakaz.Active:=False;
+  DBModule.ADOQZakaz.SQL.Clear;
+  DBModule.ADOQZakaz.SQL.Add('select Technika.name as [Техника], Zakaz.data_zkz as [Заказ], Zakaz.price as [Цена], Sotrud.FIO as [Сотрудник]');
+  DBModule.ADOQZakaz.SQL.Add('from Zakaz, Technika, Sotrud');
+  DBModule.ADOQZakaz.SQL.Add('where Technika.id_techn=Zakaz.id_techn and Sotrud.id_sotr=Zakaz.id_sotrud');
+  if CheckBox1.Checked=true then
+    begin
+    DBModule.ADOQZakaz.SQL.Add('and Zakaz.id_techn='+DBLookUpCombobox3.ListSource.DataSet.FieldByName('id_techn').AsString+'');
+    end;
+  if CheckBox3.Checked=true then
+  begin
+     DBModule.ADOQZakaz.SQL.Add('and Zakaz.id_sotrud='+DBLookUpCombobox4.ListSource.DataSet.FieldByName('id_sotr').AsString+'');
+  end;
+  if CheckBox4.Checked=true then
+    begin
+      DBModule.ADOQZakaz.SQL.Add('and Zakaz.data_zkz between'''+Maskedit1.Text+''' and '''+Maskedit2.Text+'''');
+    end;
+  if CheckBox2.Checked=true then
+    begin
+      DBModule.ADOQZakaz.SQL.Add('and Zakaz.price between'''+Edit1.Text+''' and '''+Edit2.Text+'''');
+    end;
+
+
+  DBModule.ADOQZakaz.Active:=True;
 end;
 
 procedure TFormZakaz.FormClose(Sender: TObject; var Action: TCloseAction);

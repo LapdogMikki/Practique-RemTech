@@ -154,6 +154,7 @@ object FormZakaz: TFormZakaz
           Height = 25
           Caption = #1057#1092#1086#1088#1084#1080#1088#1086#1074#1072#1090#1100' '#1086#1090#1095#1105#1090
           TabOrder = 7
+          OnClick = Button7Click
         end
         object Button8: TButton
           Left = 343
@@ -284,6 +285,7 @@ object FormZakaz: TFormZakaz
           Height = 24
           Caption = #1057#1092#1086#1088#1084#1080#1088#1086#1074#1072#1090#1100' '#1086#1090#1095#1105#1090
           TabOrder = 3
+          OnClick = Button11Click
         end
         object CheckBox1: TCheckBox
           Left = 3

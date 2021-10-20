@@ -1,6 +1,6 @@
 object DBModule: TDBModule
   OldCreateOrder = False
-  Height = 619
+  Height = 781
   Width = 667
   object ADORem_tech: TADOConnection
     Connected = True
@@ -1253,6 +1253,7 @@ object DBModule: TDBModule
     end
   end
   object ADOFormZkz: TADOTable
+    Active = True
     Connection = ADORem_tech
     CursorType = ctStatic
     TableName = 'FormirZakaz'
@@ -1280,12 +1281,24 @@ object DBModule: TDBModule
     object ADOFormZkzdata_zkz: TWideStringField
       DisplayLabel = #1044#1072#1090#1072' '#1079#1072#1082#1072#1079#1072
       FieldName = 'data_zkz'
+      EditMask = '!9999-99-99;1;_'
       Size = 10
     end
     object ADOFormZkzprice: TBCDField
       DisplayLabel = #1062#1077#1085#1072
       FieldName = 'price'
       Precision = 19
+    end
+    object ADOFormZkzsotrud: TStringField
+      DisplayLabel = #1057#1086#1090#1088#1091#1076#1085#1080#1082
+      FieldKind = fkLookup
+      FieldName = 'sotrud'
+      LookupDataSet = ADOSotrud_3
+      LookupKeyFields = 'id_sotr'
+      LookupResultField = 'FIO'
+      KeyFields = 'id_sotrud'
+      LookupCache = True
+      Lookup = True
     end
   end
   object ADOZkz: TADOTable
@@ -1295,6 +1308,49 @@ object DBModule: TDBModule
     TableName = 'Zakaz'
     Left = 104
     Top = 472
+    object ADOZkzid_zkz: TIntegerField
+      FieldName = 'id_zkz'
+      Visible = False
+    end
+    object ADOZkzid_techn: TIntegerField
+      FieldName = 'id_techn'
+      Visible = False
+    end
+    object ADOZkzid_sotrud: TIntegerField
+      FieldName = 'id_sotrud'
+      Visible = False
+    end
+    object ADOZkztechn: TStringField
+      DisplayLabel = #1058#1077#1093#1085#1080#1082#1072
+      FieldKind = fkLookup
+      FieldName = 'techn'
+      LookupDataSet = ADOTechn_3
+      LookupKeyFields = 'id_techn'
+      LookupResultField = 'name'
+      KeyFields = 'id_techn'
+      Lookup = True
+    end
+    object ADOZkzdata_zkz: TWideStringField
+      DisplayLabel = #1044#1072#1090#1072' '#1079#1072#1082#1072#1079#1072
+      FieldName = 'data_zkz'
+      EditMask = '!9999-99-99;1;_'
+      Size = 10
+    end
+    object ADOZkzprice: TBCDField
+      DisplayLabel = #1062#1077#1085#1072
+      FieldName = 'price'
+      Precision = 19
+    end
+    object ADOZkzsotrud: TStringField
+      DisplayLabel = #1054#1090#1074'.'#1089#1086#1090#1088#1091#1076#1085#1080#1082
+      FieldKind = fkLookup
+      FieldName = 'sotrud'
+      LookupDataSet = ADOSotrud_3
+      LookupKeyFields = 'id_sotr'
+      LookupResultField = 'FIO'
+      KeyFields = 'id_sotrud'
+      Lookup = True
+    end
   end
   object ADOTechn_3: TADOTable
     Active = True
@@ -1331,5 +1387,575 @@ object DBModule: TDBModule
     DataSet = ADOSotrud_3
     Left = 184
     Top = 568
+  end
+  object DataQueryZakaz: TDataSource
+    DataSet = ADOQZakaz
+    Left = 248
+    Top = 432
+  end
+  object ADOQZakaz: TADOQuery
+    Active = True
+    Connection = ADORem_tech
+    CursorType = ctStatic
+    Parameters = <>
+    SQL.Strings = (
+      
+        'select Technika.name as ['#1058#1077#1093#1085#1080#1082#1072'], Zakaz.data_zkz as ['#1047#1072#1082#1072#1079'], Za' +
+        'kaz.price as ['#1062#1077#1085#1072'], Sotrud.FIO as ['#1057#1086#1090#1088#1091#1076#1085#1080#1082']'
+      'from Zakaz, Sotrud, Technika'
+      
+        'where Technika.id_techn=Zakaz.id_techn and Sotrud.id_sotr=Zakaz.' +
+        'id_sotrud')
+    Left = 256
+    Top = 384
+  end
+  object frxReportZkz: TfrxReport
+    Version = '4.2.45'
+    DotMatrixReport = False
+    IniFile = '\Software\Fast Reports'
+    PreviewOptions.Buttons = [pbPrint, pbLoad, pbSave, pbExport, pbZoom, pbFind, pbOutline, pbPageSetup, pbTools, pbEdit, pbNavigator, pbExportQuick]
+    PreviewOptions.Zoom = 1.000000000000000000
+    PrintOptions.Printer = 'Default'
+    PrintOptions.PrintOnSheet = 0
+    ReportOptions.CreateDate = 44489.779782152780000000
+    ReportOptions.LastChange = 44489.842589479170000000
+    ScriptLanguage = 'PascalScript'
+    ScriptText.Strings = (
+      'begin'
+      ''
+      'end.')
+    Left = 360
+    Top = 584
+    Datasets = <
+      item
+        DataSet = frxDBDataSotr2
+        DataSetName = 'frxDBDataSotr2'
+      end
+      item
+        DataSet = frxDBDataTech2
+        DataSetName = 'frxDBDataTech2'
+      end
+      item
+        DataSet = frxDBDataZkz
+        DataSetName = 'frxDBDataZkz'
+      end>
+    Variables = <>
+    Style = <>
+    object Data: TfrxDataPage
+      Height = 1000.000000000000000000
+      Width = 1000.000000000000000000
+    end
+    object Page1: TfrxReportPage
+      PaperWidth = 210.000000000000000000
+      PaperHeight = 297.000000000000000000
+      PaperSize = 9
+      object MasterData1: TfrxMasterData
+        Height = 22.677180000000000000
+        Top = 102.047310000000000000
+        Width = 793.701300000000000000
+        RowCount = 0
+      end
+      object ReportTitle11: TfrxReportTitle
+        Height = 22.677180000000000000
+        Top = 18.897650000000000000
+        Width = 793.701300000000000000
+      end
+    end
+  end
+  object frxDBDataZkz: TfrxDBDataset
+    UserName = 'frxDBDataZkz'
+    CloseDataSource = False
+    DataSource = DataQueryZakaz
+    Left = 360
+    Top = 536
+  end
+  object frxReportFormZkz: TfrxReport
+    Version = '4.2.45'
+    DataSet = frxDBDataFormZkz
+    DataSetName = 'frxDBDataFormZkz'
+    DotMatrixReport = False
+    IniFile = '\Software\Fast Reports'
+    PreviewOptions.Buttons = [pbPrint, pbLoad, pbSave, pbExport, pbZoom, pbFind, pbOutline, pbPageSetup, pbTools, pbEdit, pbNavigator, pbExportQuick]
+    PreviewOptions.Zoom = 1.000000000000000000
+    PrintOptions.Printer = 'Default'
+    PrintOptions.PrintOnSheet = 0
+    ReportOptions.CreateDate = 44489.779782152800000000
+    ReportOptions.LastChange = 44489.834890833340000000
+    ScriptLanguage = 'PascalScript'
+    ScriptText.Strings = (
+      'begin'
+      ''
+      'end.')
+    Left = 232
+    Top = 616
+    Datasets = <
+      item
+        DataSet = frxDBDatasetFormZkz2
+        DataSetName = 'frxDBDataFormZkz2'
+      end
+      item
+        DataSet = frxDBDataFormZkz
+        DataSetName = 'frxDBDataFormZkz'
+      end>
+    Variables = <>
+    Style = <>
+    object Data: TfrxDataPage
+      Height = 1000.000000000000000000
+      Width = 1000.000000000000000000
+    end
+    object Page1: TfrxReportPage
+      PaperWidth = 210.000000000000000000
+      PaperHeight = 297.000000000000000000
+      PaperSize = 9
+      object ReportTitle1: TfrxReportTitle
+        Height = 90.708720000000000000
+        Top = 18.897650000000000000
+        Width = 793.701300000000000000
+        object Memo1: TfrxMemoView
+          Left = 162.519790000000000000
+          Width = 442.205010000000000000
+          Height = 22.677180000000000000
+          DisplayFormat.DecimalSeparator = ','
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -19
+          Font.Name = 'Arial'
+          Font.Style = []
+          HAlign = haCenter
+          Memo.UTF8 = (
+            
+              #1056#1115#1057#8218#1057#8225#1057#8216#1057#8218' '#1056#1111#1056#1109' '#1056#183#1056#176#1056#1108#1057#1107#1056#1111#1056#187#1056#181#1056#1029#1056#1029#1057#8249#1056#1112' '#1057#8218#1056#181#1057#8230#1056#1029#1056#1105#1057#8225#1056#181#1057#1027#1056#1108#1056#1105#1056#1112' '#1057#1027 +
+              #1057#1026#1056#181#1056#1169#1057#1027#1057#8218#1056#1030#1056#176#1056#1112)
+          ParentFont = False
+        end
+        object Memo2: TfrxMemoView
+          Left = 30.236240000000000000
+          Top = 60.472480000000000000
+          Width = 136.063080000000000000
+          Height = 26.456710000000000000
+          DisplayFormat.DecimalSeparator = ','
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -19
+          Font.Name = 'Arial'
+          Font.Style = []
+          HAlign = haCenter
+          Memo.UTF8 = (
+            #1056#1118#1056#181#1057#8230'.'#1057#1027#1057#1026#1056#181#1056#1169#1057#1027#1057#8218#1056#1030#1056#1109)
+          ParentFont = False
+        end
+        object Memo3: TfrxMemoView
+          Left = 260.787570000000000000
+          Top = 60.472480000000000000
+          Width = 136.063080000000000000
+          Height = 26.456710000000000000
+          DisplayFormat.DecimalSeparator = ','
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -19
+          Font.Name = 'Arial'
+          Font.Style = []
+          HAlign = haCenter
+          Memo.UTF8 = (
+            #1056#1038#1056#1109#1057#8218#1057#1026#1057#1107#1056#1169#1056#1029#1056#1105#1056#1108)
+          ParentFont = False
+        end
+        object Memo4: TfrxMemoView
+          Left = 578.268090000000000000
+          Top = 60.472480000000000000
+          Width = 136.063080000000000000
+          Height = 26.456710000000000000
+          DisplayFormat.DecimalSeparator = ','
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -19
+          Font.Name = 'Arial'
+          Font.Style = []
+          HAlign = haCenter
+          Memo.UTF8 = (
+            #1056#166#1056#181#1056#1029#1056#176)
+          ParentFont = False
+        end
+      end
+      object MasterData1: TfrxMasterData
+        Height = 68.031540000000000000
+        Top = 170.078850000000000000
+        Width = 793.701300000000000000
+        DataSet = frxDBDatasetFormZkz2
+        DataSetName = 'frxDBDataFormZkz2'
+        RowCount = 0
+        object frxDBDataFormZkz2techn: TfrxMemoView
+          Left = 22.677180000000000000
+          Top = 26.456710000000000000
+          Width = 158.740260000000000000
+          Height = 18.897650000000000000
+          DataField = 'techn'
+          DataSet = frxDBDatasetFormZkz2
+          DataSetName = 'frxDBDataFormZkz2'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = []
+          Memo.UTF8 = (
+            '[frxDBDataFormZkz2."techn"]')
+          ParentFont = False
+        end
+        object frxDBDataFormZkz2sotrud: TfrxMemoView
+          Left = 249.448980000000000000
+          Top = 26.456710000000000000
+          Width = 158.740260000000000000
+          Height = 18.897650000000000000
+          DataField = 'sotrud'
+          DataSet = frxDBDatasetFormZkz2
+          DataSetName = 'frxDBDataFormZkz2'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = []
+          Memo.UTF8 = (
+            '[frxDBDataFormZkz2."sotrud"]')
+          ParentFont = False
+        end
+        object frxDBDataFormZkz2price: TfrxMemoView
+          Left = 570.709030000000000000
+          Top = 26.456710000000000000
+          Width = 158.740260000000000000
+          Height = 18.897650000000000000
+          DataField = 'price'
+          DataSet = frxDBDatasetFormZkz2
+          DataSetName = 'frxDBDataFormZkz2'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = []
+          Memo.UTF8 = (
+            '[frxDBDataFormZkz2."price"]')
+          ParentFont = False
+        end
+      end
+      object ReportSummary1: TfrxReportSummary
+        Height = 60.472480000000000000
+        Top = 298.582870000000000000
+        Width = 793.701300000000000000
+        object SysMemo1: TfrxSysMemoView
+          Left = 634.961040000000000000
+          Top = 15.118120000000000000
+          Width = 136.063080000000000000
+          Height = 18.897650000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          HAlign = haCenter
+          Memo.UTF8 = (
+            '[SUM(<frxDBDataFormZkz2."price">,MasterData1)]')
+          ParentFont = False
+        end
+        object Memo5: TfrxMemoView
+          Left = 570.709030000000000000
+          Top = 15.118120000000000000
+          Width = 52.913420000000000000
+          Height = 18.897650000000000000
+          DisplayFormat.DecimalSeparator = ','
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = []
+          HAlign = haRight
+          Memo.UTF8 = (
+            #1056#152#1057#8218#1056#1109#1056#1110#1056#1109':')
+          ParentFont = False
+        end
+      end
+      object PageFooter1: TfrxPageFooter
+        Height = 158.740260000000000000
+        Top = 381.732530000000000000
+        Width = 793.701300000000000000
+        object Memo6: TfrxMemoView
+          Left = 298.582870000000000000
+          Top = 11.338590000000000000
+          Width = 177.637910000000000000
+          Height = 18.897650000000000000
+          DisplayFormat.DecimalSeparator = ','
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          HAlign = haCenter
+          Memo.UTF8 = (
+            #1056#8212#1056#176#1056#1030#1056#181#1056#1169#1057#1107#1057#1035#1057#8240#1056#1105#1056#8470' '#1057#8218#1056#181#1057#8230'.'#1056#1109#1057#8218#1056#1169#1056#181#1056#187#1056#1109#1056#1112)
+          ParentFont = False
+        end
+        object Memo7: TfrxMemoView
+          Left = 502.677490000000000000
+          Top = 11.338590000000000000
+          Width = 279.685220000000000000
+          Height = 18.897650000000000000
+          DisplayFormat.DecimalSeparator = ','
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          Memo.UTF8 = (
+            '_______________________________________')
+          ParentFont = False
+        end
+        object Memo8: TfrxMemoView
+          Left = 298.582870000000000000
+          Top = 52.913420000000000000
+          Width = 177.637910000000000000
+          Height = 18.897650000000000000
+          DisplayFormat.DecimalSeparator = ','
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          HAlign = haRight
+          Memo.UTF8 = (
+            #1056#1119#1057#1026#1056#181#1056#1169#1057#1027#1056#181#1056#1169#1056#176#1057#8218#1056#181#1056#187#1057#1034)
+          ParentFont = False
+        end
+        object Memo9: TfrxMemoView
+          Left = 502.677490000000000000
+          Top = 52.913420000000000000
+          Width = 279.685220000000000000
+          Height = 18.897650000000000000
+          DisplayFormat.DecimalSeparator = ','
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          Memo.UTF8 = (
+            '_______________________________________')
+          ParentFont = False
+        end
+      end
+    end
+  end
+  object frxReportSotr2: TfrxReport
+    Version = '4.2.45'
+    DotMatrixReport = False
+    IniFile = '\Software\Fast Reports'
+    PreviewOptions.Buttons = [pbPrint, pbLoad, pbSave, pbExport, pbZoom, pbFind, pbOutline, pbPageSetup, pbTools, pbEdit, pbNavigator, pbExportQuick]
+    PreviewOptions.Zoom = 1.000000000000000000
+    PrintOptions.Printer = 'Default'
+    PrintOptions.PrintOnSheet = 0
+    ReportOptions.CreateDate = 44489.779782152780000000
+    ReportOptions.LastChange = 44489.779782152780000000
+    ScriptLanguage = 'PascalScript'
+    ScriptText.Strings = (
+      'begin'
+      ''
+      'end.')
+    Left = 440
+    Top = 584
+    Datasets = <>
+    Variables = <>
+    Style = <>
+  end
+  object frxReportTech2: TfrxReport
+    Version = '4.2.45'
+    DotMatrixReport = False
+    IniFile = '\Software\Fast Reports'
+    PreviewOptions.Buttons = [pbPrint, pbLoad, pbSave, pbExport, pbZoom, pbFind, pbOutline, pbPageSetup, pbTools, pbEdit, pbNavigator, pbExportQuick]
+    PreviewOptions.Zoom = 1.000000000000000000
+    PrintOptions.Printer = 'Default'
+    PrintOptions.PrintOnSheet = 0
+    ReportOptions.CreateDate = 44489.779782152780000000
+    ReportOptions.LastChange = 44489.779782152780000000
+    ScriptLanguage = 'PascalScript'
+    ScriptText.Strings = (
+      'begin'
+      ''
+      'end.')
+    Left = 520
+    Top = 584
+    Datasets = <>
+    Variables = <>
+    Style = <>
+  end
+  object frxDBDataFormZkz: TfrxDBDataset
+    UserName = 'frxDBDataFormZkz'
+    CloseDataSource = False
+    DataSource = DataFormZkz
+    Left = 144
+    Top = 624
+  end
+  object frxDBDataSotr2: TfrxDBDataset
+    UserName = 'frxDBDataSotr2'
+    CloseDataSource = False
+    DataSource = DataQueryZakaz
+    Left = 440
+    Top = 536
+  end
+  object frxDBDataTech2: TfrxDBDataset
+    UserName = 'frxDBDataTech2'
+    CloseDataSource = False
+    DataSource = DataQueryZakaz
+    Left = 520
+    Top = 536
+  end
+  object frxDBDatasetFormZkz2: TfrxDBDataset
+    UserName = 'frxDBDataFormZkz2'
+    CloseDataSource = False
+    DataSource = DataFormZkz2
+    Left = 144
+    Top = 672
+  end
+  object frxReportFormZkz2: TfrxReport
+    Version = '4.2.45'
+    DataSet = frxDBDataFormZkz
+    DataSetName = 'frxDBDataFormZkz'
+    DotMatrixReport = False
+    IniFile = '\Software\Fast Reports'
+    PreviewOptions.Buttons = [pbPrint, pbLoad, pbSave, pbExport, pbZoom, pbFind, pbOutline, pbPageSetup, pbTools, pbEdit, pbNavigator, pbExportQuick]
+    PreviewOptions.Zoom = 1.000000000000000000
+    PrintOptions.Printer = 'Default'
+    PrintOptions.PrintOnSheet = 0
+    ReportOptions.CreateDate = 44489.779782152800000000
+    ReportOptions.LastChange = 44489.786129131900000000
+    ScriptLanguage = 'PascalScript'
+    ScriptText.Strings = (
+      'begin'
+      ''
+      'end.')
+    Left = 232
+    Top = 664
+    Datasets = <
+      item
+        DataSet = frxDBDatasetFormZkz2
+        DataSetName = 'frxDBDataFormZkz2'
+      end
+      item
+        DataSet = frxDBDataFormZkz
+        DataSetName = 'frxDBDataFormZkz'
+      end>
+    Variables = <>
+    Style = <>
+    object Data: TfrxDataPage
+      Height = 1000.000000000000000000
+      Width = 1000.000000000000000000
+    end
+    object Page1: TfrxReportPage
+      PaperWidth = 210.000000000000000000
+      PaperHeight = 297.000000000000000000
+      PaperSize = 9
+      object ReportTitle1: TfrxReportTitle
+        Height = 90.708720000000000000
+        Top = 18.897650000000000000
+        Width = 793.701300000000000000
+      end
+      object MasterData1: TfrxMasterData
+        Height = 98.267780000000000000
+        Top = 170.078850000000000000
+        Width = 793.701300000000000000
+        Child = FormZakaz.Owner
+        DataSet = frxDBDataFormZkz
+        DataSetName = 'frxDBDataFormZkz'
+        RowCount = 0
+        object frxDBDataFormZkztechn: TfrxMemoView
+          Left = 3.779530000000000000
+          Top = 11.338590000000000000
+          Width = 158.740260000000000000
+          Height = 18.897650000000000000
+          DataField = 'techn'
+          DataSet = frxDBDataFormZkz
+          DataSetName = 'frxDBDataFormZkz'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = []
+          Memo.UTF8 = (
+            '[frxDBDataFormZkz."techn"]')
+          ParentFont = False
+        end
+      end
+      object Child1: TfrxChild
+        Height = 41.574830000000000000
+        Top = 291.023810000000000000
+        Width = 793.701300000000000000
+        object frxDBDataFormZkzdata_zkz: TfrxMemoView
+          Left = 215.433210000000000000
+          Top = 7.559060000000000000
+          Width = 79.370130000000000000
+          Height = 18.897650000000000000
+          DataField = 'data_zkz'
+          DataSet = frxDBDataFormZkz
+          DataSetName = 'frxDBDataFormZkz'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = []
+          Memo.UTF8 = (
+            '[frxDBDataFormZkz."data_zkz"]')
+          ParentFont = False
+        end
+      end
+    end
+  end
+  object ADOFormZkz2: TADOTable
+    Active = True
+    Connection = ADORem_tech
+    CursorType = ctStatic
+    TableName = 'FormirZakaz'
+    Left = 112
+    Top = 368
+    object IntegerField1: TIntegerField
+      FieldName = 'id_tech'
+      Visible = False
+    end
+    object IntegerField2: TIntegerField
+      FieldName = 'id_sotrud'
+      Visible = False
+    end
+    object StringField1: TStringField
+      DisplayLabel = #1058#1077#1093#1085#1080#1082#1072
+      FieldKind = fkLookup
+      FieldName = 'techn'
+      LookupDataSet = ADOTechn_3
+      LookupKeyFields = 'id_techn'
+      LookupResultField = 'name'
+      KeyFields = 'id_tech'
+      LookupCache = True
+      Lookup = True
+    end
+    object WideStringField1: TWideStringField
+      DisplayLabel = #1044#1072#1090#1072' '#1079#1072#1082#1072#1079#1072
+      FieldName = 'data_zkz'
+      EditMask = '!9999-99-99;1;_'
+      Size = 10
+    end
+    object BCDField1: TBCDField
+      DisplayLabel = #1062#1077#1085#1072
+      FieldName = 'price'
+      Precision = 19
+    end
+    object StringField2: TStringField
+      DisplayLabel = #1057#1086#1090#1088#1091#1076#1085#1080#1082
+      FieldKind = fkLookup
+      FieldName = 'sotrud'
+      LookupDataSet = ADOSotrud_3
+      LookupKeyFields = 'id_sotr'
+      LookupResultField = 'FIO'
+      KeyFields = 'id_sotrud'
+      LookupCache = True
+      Lookup = True
+    end
+  end
+  object DataFormZkz2: TDataSource
+    DataSet = ADOFormZkz2
+    Left = 192
+    Top = 368
   end
 end

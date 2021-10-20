@@ -22,7 +22,7 @@ object FormMain: TFormMain
     Top = 0
     Width = 625
     Height = 449
-    ActivePage = TabSheet1
+    ActivePage = TabSheet3
     TabOrder = 0
     object TabSheet1: TTabSheet
       Caption = #1057#1087#1080#1089#1086#1082' '#1080#1084#1077#1102#1097#1077#1081#1089#1103' '#1090#1077#1093#1085#1080#1082#1080

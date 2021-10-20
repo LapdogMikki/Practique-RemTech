@@ -91,16 +91,7 @@ type
     frxDBDataFormZkz: TfrxDBDataset;
     frxDBDataSotr2: TfrxDBDataset;
     frxDBDataTech2: TfrxDBDataset;
-    frxDBDatasetFormZkz2: TfrxDBDataset;
-    frxReportFormZkz2: TfrxReport;
-    ADOFormZkz2: TADOTable;
-    IntegerField1: TIntegerField;
-    IntegerField2: TIntegerField;
-    StringField1: TStringField;
-    WideStringField1: TWideStringField;
-    BCDField1: TBCDField;
-    StringField2: TStringField;
-    DataFormZkz2: TDataSource;
+    procedure DataModuleCreate(Sender: TObject);
   private
     { Private declarations }
   public

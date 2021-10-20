@@ -83,24 +83,14 @@ type
     ADOZkzsotrud: TStringField;
     DataQueryZakaz: TDataSource;
     ADOQZakaz: TADOQuery;
-    frxReportZkz: TfrxReport;
-    frxDBDataZkz: TfrxDBDataset;
-    frxReportFormZkz: TfrxReport;
-    frxReportSotr2: TfrxReport;
-    frxReportTech2: TfrxReport;
-    frxDBDataFormZkz: TfrxDBDataset;
-    frxDBDataSotr2: TfrxDBDataset;
-    frxDBDataTech2: TfrxDBDataset;
-    frxDBDatasetFormZkz2: TfrxDBDataset;
-    frxReportFormZkz2: TfrxReport;
-    ADOFormZkz2: TADOTable;
-    IntegerField1: TIntegerField;
-    IntegerField2: TIntegerField;
-    StringField1: TStringField;
-    WideStringField1: TWideStringField;
-    BCDField1: TBCDField;
-    StringField2: TStringField;
-    DataFormZkz2: TDataSource;
+    frxReport1: TfrxReport;
+    frxDBDataset1: TfrxDBDataset;
+    frxReport2: TfrxReport;
+    frxReport3: TfrxReport;
+    frxReport4: TfrxReport;
+    frxDBDataset2: TfrxDBDataset;
+    frxDBDataset3: TfrxDBDataset;
+    frxDBDataset4: TfrxDBDataset;
   private
     { Private declarations }
   public
@@ -113,7 +103,6 @@ var
 implementation
 
 {$R *.dfm}
-
 
 
 
